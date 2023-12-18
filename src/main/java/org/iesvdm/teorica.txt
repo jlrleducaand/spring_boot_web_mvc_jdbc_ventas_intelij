@@ -1,0 +1,46 @@
+@Service  =   capa de servicio
+@Controller =  Controlador servlet
+@Repository = capa DAO   acceso a  Datos la DDBB
+@componente = (service, controler, repository)
+
+@SERVICE
+La anotación `@Service` en Spring Framework pertenece a la **capa de servicio**.
+Esta capa se encarga de la lógica de negocio y es una abstracción que define
+el conjunto de servicios disponibles y sus operaciones relacionadas.
+
+### Detalles de `@Service`
+
+- **Propósito**: La anotación `@Service` se utiliza para marcar una clase Java como un servicio.
+Indica que la clase contiene lógica de negocio y puede ser utilizada por las capas de presentación
+o controladores, así como también por otras clases de servicio.
+
+- **Estereotipo de Spring**: `@Service` es una de las varias anotaciones TIPO que proporciona
+Spring para marcar componentes por su papel dentro de la aplicación.
+Otras incluyen `@Repository`, `@Controller`, y `@Component`.
+
+- **Gestión de Transacciones**: Las clases marcadas con `@Service` son buenos candidatos para tener asociados
+ aspectos de manejo de transacciones, especialmente si interactúan con bases de datos a través de la capa
+  de acceso a datos (`@Repository`).
+
+- **Descubrimiento Automático**: Al usar anotaciones como `@Service`, puedes habilitar el escaneo de componentes en Spring para detectar automáticamente estas clases y registrarlas como beans en el contexto de la aplicación.
+
+Aquí tienes un ejemplo de cómo se utiliza la anotación `@Service`:
+
+```java
+import org.springframework.stereotype.Service;
+
+@Service
+public class MiServicio {
+
+    public void realizarOperacion() {
+        // Lógica de negocio aquí
+    }
+}
+```
+
+En este ejemplo, `MiServicio` es una clase que se considera parte de la capa de servicio y está diseñada para contener y manejar la lógica de negocio de la aplicación.
+
+
+la aplicacion SpringBootWebMvcJdbcVentasApplication
+carga los modelos pojo
+despues

@@ -17,20 +17,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 //Un Repository es un componente y a su vez un estereotipo de Spring 
 //que forma parte de la ‘capa de persistencia’.
-@Repository
+@Repository  // Atacara a la DDBB
 public class ClienteDAOImpl implements ClienteDAO {
 
 	 //Plantilla jdbc inyectada automáticamente por el framework Spring, gracias a la anotación @Autowired.
 	 @Autowired
-	 private JdbcTemplate jdbcTemplate;
+	 private JdbcTemplate jdbcTemplate;   //equivale a new jdbcTemplate sin la notacion  es null
 	
 	/**
 	 * Inserta en base de datos el nuevo Cliente, actualizando el id en el bean Cliente.
 	 */
 	@Override	
 	public synchronized void create(Cliente cliente) {
-		
-							//Desde java15+ se tiene la triple quote """ para bloques de texto como cadenas.
+
+		//Desde java15 se tiene la triple quote """ para bloques de texto como cadenas.
 		String sqlInsert = """
 							INSERT INTO cliente (nombre, apellido1, apellido2, ciudad, categoría) 
 							VALUES  (     ?,         ?,         ?,       ?,         ?)
